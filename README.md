@@ -4,7 +4,7 @@
 <br>
 
 ## 🔎 Overview 
-1. [EDA](https://github.com/iDolphin99/Commerical_data_analysis_AI/edit/master/README.md#-1-eda)
+1. [EDA](https://github.com/iDolphin99/Commerical_data_analysis_AI#-1-eda)
 2. [Regression](https://github.com/iDolphin99/Commerical_data_analysis_AI/edit/master/README.md#-2-regression)
 3. [Classfication](https://github.com/iDolphin99/Commerical_data_analysis_AI/edit/master/README.md#-3-classification) 
 4. [Platform](https://github.com/iDolphin99/Commerical_data_analysis_AI/edit/master/README.md#-4-platform) 
