@@ -5,11 +5,11 @@
 
 ## 🔎 Overview 
 1. [EDA](https://github.com/iDolphin99/Commerical_data_analysis_AI#-1-eda)
-2. Regression
-3. Classfication 
-4. Platform 
-5. Rule
-6. Team Members
+2. [Regression](https://github.com/iDolphin99/Commerical_data_analysis_AI#-2-regression)
+3. [Classfication](https://github.com/iDolphin99/Commerical_data_analysis_AI#-3-classification) 
+4. [Platform](https://github.com/iDolphin99/Commerical_data_analysis_AI#-4-platform) 
+5. [Rule](https://github.com/iDolphin99/Commerical_data_analysis_AI#-5-rule)
+6. [Team Members](https://github.com/iDolphin99/Commerical_data_analysis_AI#-6-team-members)
 
 <br>
 
