@@ -51,7 +51,22 @@ The biggest problem in regression is to improve the performance of the model. In
 
 ## 🚀 3. Classification
 The biggest problem in classification is labeling our y value, monthly gain.  
+- Idea : **How to deal with(classify or label) our skewed y data?** 
+  - **quantity labeling** : labeling from 3 to 10, and accuracy.. 
+  - **domain knowledge** : ongoing this work... 
+- model 
+  - xgb
+  - lgbm 
+- Evaluation metrics
+  - accuracy
+- BenchMark 
+  
+  The table below is the values we measured.
 
+  | Model |  accuracy |
+  |-----  |:----------|
+  |  XGB  ||
+  |  LGBM ||
 <br>
 
 ## 🚀 4. Platform
