@@ -70,8 +70,11 @@ The biggest problem in classification is labeling our y value, monthly gain.
 <br>
 
 ## 🚀 4. Platform
-- AWS or SVN 
-- React
+- SVN 
+- Java, Spring framework
+- HTML, CSS, JavaScript 
+  - fixed layout
+  - add footer : ongoing this work...  
 
 <br>
 
