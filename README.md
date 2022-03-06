@@ -40,14 +40,14 @@ The biggest problem in regression is to improve the performance of the model. In
   - rmse, mse 
   - r2 score 
 - BenchMark 
-  
-  Based on "Our Model" column, the left side is the expected value(or target) and the right side is the value we measured. 
+ 
+  From left side, three columns mean **"target(Goal score)", "In sample data", "In big data"** value we measured.
 
-  | Model |  MSE | RMSE |  R2  | Our Model |  MSE | RMSE |  R2  |
-  |-----  |:-----|:-----|:-----|:----------|:-----|:-----|:-----|
-  |  XGB  |0.1577|0.3971| 0.75 |    XGB    |87943413680580752.00|296552547.92|:-------|
-  |  LGBM |      |      |      |   LGBM    |112181777798303184.00|334935483.03 |:-----|
-  |   RF  |      |      |      |    RF     |                     |             |      |
+  | Model |  MSE | RMSE |  R2  |          MSE        |     RMSE   |   R2   |   MSE   | RMSE | R2 |
+  |-------|:-----|:-----|:-----|:--------------------|:-----------|:-------|:--------|:-----|:---|
+  |  XGB  |0.1577|0.3971| 0.75 | 87943413680580752.00|296552547.92|:-------|         |      |    |
+  |  LGBM |      |      |      |112181777798303184.00|334935483.03|:-------|         |      |    |
+  |   RF  |      |      |      |                     |            |        |         |      |    |
 
 <br>
 
@@ -64,13 +64,13 @@ The biggest problem in classification is labeling our y value, monthly gain.
   - accuracy
 - BenchMark 
   
-  The table below is the values we measured.
+  From left side, each column means **"Quantity labeling", "domain labeling"** value we measured. 
 
-  | Model |  accuracy |
-  |-----  |:----------|
-  |  XGB  ||
-  |  LGBM ||
-  |   RF  ||
+  | Model |  accuracy | accuracy |
+  |-----  |:----------|:---------|
+  |  XGB  |||
+  |  LGBM |||
+  |   RF  |||
 <br>
 
 ## 🚀 4. Platform
