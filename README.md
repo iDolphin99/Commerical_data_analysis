@@ -33,6 +33,7 @@ The biggest problem in regression is to improve the performance of the model. In
   - **new evaluation metrics** : ongoing this work... 
   - **LightGBM for Quantile Regression** : ongoning this work... 
 - model 
+  - randomforest
   - xgb
   - lgbm 
 - Evaluation metrics
@@ -44,8 +45,9 @@ The biggest problem in regression is to improve the performance of the model. In
 
   | Model |  MSE | RMSE |  R2  | Our Model |  MSE | RMSE |  R2  |
   |-----  |:-----|:-----|:-----|:----------|:-----|:-----|:-----|
-  |  XGB  |0.1577|0.3971| 0.75 |    XGB    |87943413680580752.00|296552547.92|:-----|
+  |  XGB  |0.1577|0.3971| 0.75 |    XGB    |87943413680580752.00|296552547.92|:-------|
   |  LGBM |      |      |      |   LGBM    |112181777798303184.00|334935483.03 |:-----|
+  |   RF  |      |      |      |    RF     |                     |             |      |
 
 <br>
 
@@ -54,6 +56,7 @@ The biggest problem in classification is labeling our y value, monthly gain.
 - Idea : **How to deal with(classify or label) our skewed y data?** 
   - **quantity labeling** : labeling from 3 to 10, and accuracy.. 
   - **domain knowledge** : ongoing this work... 
+  - **TabNet** : planning this work...
 - model 
   - xgb
   - lgbm 
@@ -67,11 +70,15 @@ The biggest problem in classification is labeling our y value, monthly gain.
   |-----  |:----------|
   |  XGB  ||
   |  LGBM ||
+  |   RF  ||
 <br>
 
 ## 🚀 4. Platform
-- AWS or SVN 
-- React
+- SVN 
+- Java, Spring framework
+- HTML, CSS, JavaScript 
+  - fixed layout
+  - add footer : ongoing this work...  
 
 <br>
 
