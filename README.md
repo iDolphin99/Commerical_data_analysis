@@ -23,14 +23,14 @@ See our **EDA_report_code.ipynb** code. The details would be added in READ.md at
 <br>
 
 ## 🚀 2. Regression 
-The biggest problem in regression is to improve the performance of the model. In other words, it is to increase the evaluation score. 
+The biggest problem in regression is to improve the performance of the model. In other words, it is to increase the evaluation score.
 - Idea : **How to deal with our skewed y data?** 
   - **Log transformation** : we apply log transformation to "average_sale_price" feature
   - **k-fold cross-validation** : we use k=5
   - **Log transformation <-> backtoOriginal** : but, the performance has fallen further
   - **LGBM -> objective = tweedie, tweedie loss function** : but, there was a limiation to improving preformance in LGBM, so we decieded not to use this function 
-  - **Hyperparameter tuning** : ongoing this work... (with GridSearchCV)
-  - **new evaluation metrics** : ongoing this work... 
+  - **Hyperparameter tuning** : We try this with GridSearchCV, but as a result of the meeting, it doesn't need to do this. 
+  - **new evaluation metrics** : add r2 score, finally we use rmse, mse, r2 evaluation metrics
   - **LightGBM for Quantile Regression** : ongoning this work... 
 - model 
   - randomforest : Not used! 
@@ -44,11 +44,11 @@ The biggest problem in regression is to improve the performance of the model. In
  
   From left side, three columns mean **"target(Goal score)", "For sample data", "For big data"** values we measured. Finally, look at the values for **big data**
 
-  | Model |  MSE | RMSE |  R2  |          MSE        |     RMSE    |   R2   |   MSE   | RMSE | R2 |
-  |-------|:-----|:-----|:-----|:--------------------|:------------|:-------|:--------|:-----|:---|
-  |  XGB  |0.1577|0.3971| 0.75 | 84552727800574600.00| 287561374.00|        |         |      |    |
-  |  LGBM |      |      |      |104100031628893000.00| 318634288.00|        |         |      |    |
-  |   RF  |      |      |      |                     |             |        |         |      |    |
+  | Model |  MSE | RMSE |  R2  |          MSE        |     RMSE    |  R2  |        MSE        |   RMSE   |  R2  |
+  |-------|:-----|:-----|:-----|:--------------------|:------------|:-----|:------------------|:---------|:-----|
+  |  XGB  |0.1577|0.3971| 0.75 | 84552727800574600.00| 287561374.00| 0.88 | 133452775778200000| 363342072| 0.18 |
+  |  LGBM |      |      |      |104100031628893000.00| 318634288.00| 0.87 | 122804475776851000| 348992402| 0.26 |
+  |   RF  |      |      |      |                     |             |      |                   |          |      |
 
 <br>
 
