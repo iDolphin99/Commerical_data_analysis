@@ -33,21 +33,22 @@ The biggest problem in regression is to improve the performance of the model. In
   - **new evaluation metrics** : ongoing this work... 
   - **LightGBM for Quantile Regression** : ongoning this work... 
 - model 
-  - randomforest
+  - randomforest : Not used! 
   - xgb
   - lgbm 
+  - Ridge regression, lasso regression : ongoing this work...
 - Evaluation metrics
   - rmse, mse 
-  - r2 score 
+  - r2 score : you need more information about r2 score, check [this](https://www.inflearn.com/questions/48025)
 - BenchMark 
  
-  From left side, three columns mean **"target(Goal score)", "In sample data", "In big data"** value we measured.
+  From left side, three columns mean **"target(Goal score)", "For sample data", "For big data"** values we measured. Finally, look at the values for **big data**
 
-  | Model |  MSE | RMSE |  R2  |          MSE        |     RMSE   |   R2   |   MSE   | RMSE | R2 |
-  |-------|:-----|:-----|:-----|:--------------------|:-----------|:-------|:--------|:-----|:---|
-  |  XGB  |0.1577|0.3971| 0.75 | 87943413680580752.00|296552547.92|:-------|         |      |    |
-  |  LGBM |      |      |      |112181777798303184.00|334935483.03|:-------|         |      |    |
-  |   RF  |      |      |      |                     |            |        |         |      |    |
+  | Model |  MSE | RMSE |  R2  |          MSE        |     RMSE    |   R2   |   MSE   | RMSE | R2 |
+  |-------|:-----|:-----|:-----|:--------------------|:------------|:-------|:--------|:-----|:---|
+  |  XGB  |0.1577|0.3971| 0.75 | 84552727800574600.00| 287561374.00|        |         |      |    |
+  |  LGBM |      |      |      |104100031628893000.00| 318634288.00|        |         |      |    |
+  |   RF  |      |      |      |                     |             |        |         |      |    |
 
 <br>
 
