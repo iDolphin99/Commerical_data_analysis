@@ -67,11 +67,10 @@ The biggest problem in classification is labeling our y value, monthly gain.
   
   From left side, each column means **"Quantity labeling", "domain labeling"** value we measured. 
 
-  | Model |  accuracy | accuracy |
+  | Model |  accuracy(10) | accuracy() |
   |-----  |:----------|:---------|
-  |  XGB  |||
-  |  LGBM |||
-  |   RF  |||
+  |  XGB  |    0.22   ||
+  |  LGBM |    0.21   ||
 <br>
 
 ## 🚀 4. Platform
