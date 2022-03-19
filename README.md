@@ -74,7 +74,7 @@ The biggest problem in classification is labeling our y value, monthly gain.
 <br>
 
 ## 🚀 4. Platform
-- SVN 
+- Git Private Repository  
 - Java, Spring framework
 - HTML, CSS, JavaScript 
   - fixed layout
