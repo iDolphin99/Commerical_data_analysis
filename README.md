@@ -42,14 +42,14 @@ The biggest problem in regression is to improve the performance of the model. In
   - r2 score : you need more information about r2 score, check [this](https://www.inflearn.com/questions/48025)
 - BenchMark 
  
-  From left side, three columns mean **"target(Goal score)", "For sample data", "For big data"** values we measured. Finally, look at the values for **big data**
+  From left side, three columns mean **"target(Goal score)", "For sample data", "For big data", **values we measured. Finally, look at the values for **big data**
 
   | Model |  MSE | RMSE |  R2  |          MSE        |     RMSE    |  R2  |        MSE        |   RMSE   |  R2  |          MSE        |     RMSE    |  R2  |
   |-------|:-----|:-----|:-----|:--------------------|:------------|:-----|:------------------|:---------|:-----|:--------------------|:------------|:-----|
   |  XGB  |0.1577|0.3971| 0.75 | 84552727800574600.00| 287561374.00| 0.88 | 133452775778200000| 363342072| 0.18 | 53185608273073016.00| 230620051.75| 0.90 |
   |  LGBM |      |      |      |104100031628893000.00| 318634288.00| 0.87 | 122804475776851000| 348992402| 0.26 | 83135411641353504.00| 288332120.37| 0.88 |
-  |   RF  |      |      |      |                     |             |      |                   |          |      |                     |             |      |
-  | Ridge |      |      |      |805946649246134784.00| 897745314.24|-464.7|                   |          |      |
+  | Ridge |      |      |      |                     |             |      | 805946649246134784| 897745314| -464 |                     |             |      |
+  | Lasso |      |      |      |                     |             |      |                   |          |      |                     |             |      |
 
 <br>
 
