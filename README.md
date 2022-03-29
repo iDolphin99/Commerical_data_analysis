@@ -1,24 +1,28 @@
 # Commerical_data_analysis_AI
+Commercial location recommend system using Deep Learning data analysis  
 딥러닝 데이터 분석을 통한 최적의 상권입지 추천 기술 개발
 
 <br>
 
 ## 🔎 Overview 
-1. [EDA](https://github.com/iDolphin99/Commerical_data_analysis_AI#-1-eda)
+1. [EDA & Preprocessing](https://github.com/iDolphin99/Commerical_data_analysis_AI#-1-eda)
 2. [Regression](https://github.com/iDolphin99/Commerical_data_analysis_AI#-2-regression)
-3. [Classfication](https://github.com/iDolphin99/Commerical_data_analysis_AI#-3-classification) 
-4. [Platform](https://github.com/iDolphin99/Commerical_data_analysis_AI#-4-platform) 
-5. [Rule](https://github.com/iDolphin99/Commerical_data_analysis_AI#-5-rule)
-6. [Team Members](https://github.com/iDolphin99/Commerical_data_analysis_AI#%EF%B8%8F-6-team-members)
+3. [Classfication](https://github.com/iDolphin99/Commerical_data_analysis_AI#-3-classification)
+4. [Deep Learning](https://github.com/iDolphin99/Commerical_data_analysis_AI#-4-deep-learning)
+5. [Platform](https://github.com/iDolphin99/Commerical_data_analysis_AI#-5-platform) 
+6. [Rule](https://github.com/iDolphin99/Commerical_data_analysis_AI#-6-rule)
+7. [Team Members](https://github.com/iDolphin99/Commerical_data_analysis_AI#%EF%B8%8F-7-team-members)
 
 <br>
 
-## 📌 1. EDA
-See our **EDA_report_code.ipynb** code. The details would be added in READ.md at a later date.
-- labeling, handling missing values
-- **K-mean Clustering** : we combined "latitude" and "longitude" to create a new feature "geo", our k=9
-- Scaler : falied(MinMax, Normalization, Robust, Standard), we finally use **log transformation**
-- outlier detection : ongoing this work...
+## 📌 1. EDA & Preprocessing 
+See our **EDA_report_code.ipynb** code. ('bd' means 'big data', and 'sd' means 'sample data' 😎)  
+We received two types of data, so there're two versions for EDA code. 
+- Handling missing values, drop unnecessary columns
+- Label Encoderlabeling : shop_type_big, shop_type_small
+- **K-mean Clustering** : we combined "latitude" and "longitude" to create a new feature "geo", k=9
+- **Log transformation** : we finally use this scaler 
+- Scaler : falied(MinMax, Normalization, Robust, Standard)
 
 <br>
 
@@ -40,41 +44,58 @@ The biggest problem in regression is to improve the performance of the model. In
 - Evaluation metrics
   - rmse, mse 
   - r2 score : you need more information about r2 score, check [this](https://www.inflearn.com/questions/48025)
-- BenchMark 
- 
-  From left side, three columns mean **"target(Goal score)", "For sample data", "For big data", **values we measured. Finally, look at the values for **big data**
+- BenchMark   
+  From left side, three columns mean **"target(Goal score)", "For sample data", "For big data"** values we measured. 
+  Seeing 'for big data' figure is enough. 
 
-  | Model |  MSE | RMSE |  R2  |          MSE        |     RMSE    |  R2  |        MSE        |   RMSE   |  R2  |          MSE        |     RMSE    |  R2  |
-  |-------|:-----|:-----|:-----|:--------------------|:------------|:-----|:------------------|:---------|:-----|:--------------------|:------------|:-----|
-  |  XGB  |0.1577|0.3971| 0.75 | 84552727800574600.00| 287561374.00| 0.88 | 133452775778200000| 363342072| 0.18 | 53185608273073016.00| 230620051.75| 0.90 |
-  |  LGBM |      |      |      |104100031628893000.00| 318634288.00| 0.87 | 122804475776851000| 348992402| 0.26 | 83135411641353504.00| 288332120.37| 0.88 |
-  | Ridge |      |      |      |                     |             |      | 805946649246134784| 897745314| -464 |                     |             |      |
-  | Lasso |      |      |      |                     |             |      |                   |          |      |                     |             |      |
+  | Model |  MSE | RMSE |  R2  |          MSE        |     RMSE    |  R2  |        MSE        |   RMSE   |  R2  | 
+  |-------|:-----|:-----|:-----|:--------------------|:------------|:-----|:------------------|:---------|:-----|
+  |  XGB  |0.1577|0.3971| 0.75 | 84552727800574600.00| 287561374.00| 0.88 | 133452775778200000| 363342072| 0.18 | 
+  |  LGBM |      |      |      |104100031628893000.00| 318634288.00| 0.87 | 122804475776851000| 348992402| 0.26 | 
+  | Ridge |      |      |      |                     |             |      | 805946649246134784| 897745314| -464 | 
+  | Lasso |      |      |      |                     |             |      |                   |          |      | 
 
 <br>
 
 ## 🚀 3. Classification
 The biggest problem in classification is labeling our y value, monthly gain.  
 - Idea : **How to deal with(classify or label) our skewed y data?** 
-  - **quantity labeling** : labeling from 3 to 10, and accuracy.. 
-  - **domain knowledge** : ongoing this work... 
+  - **Labeling 1** : labeling from 3 to 10, and accuracy.. 
+  - **Labeling 2** : 
+  - **Labeling 3.1** : ongoing this work... 
+  - **Labeling 3.2** :
+  - **Labeling 4** : 
   - **TabNet** : planning this work...
 - model 
   - xgb
   - lgbm 
 - Evaluation metrics
-  - accuracy
-- BenchMark 
-  
-  From left side, each column means **"Quantity labeling", "domain labeling"** value we measured. 
+  - accuracy, precision, recall
+- BenchMark    
+  From left side, each column means **"Applying Labeling 1", "Applying Labeling 3.1"...** value we measured.  
+  Option 1 : Removing Outlier  
+  Option 2 : Rounding labeling  
+  Option 3(all) : Removing Outlier + Rounding labeling 
 
-  | Model |  accuracy(10) | accuracy() |
-  |-----  |:----------|:---------|
-  |  XGB  |    0.22   ||
-  |  LGBM |    0.21   ||
+  |    Model   |  accuracy(clf1) | accuracy(clf3.1) | accuracy(clf3.2) | accuracy(clf4) |
+  |------------|:----------------|:-----------------|:-----------------|:---------------|
+  | XGB        |0.22/0.37        |       0.57       |        0.57      |      0.35      |
+  | LGBM       |       0.21      ||||
+  | XGB(opt1)  |||||
+  | LGBM(opt1) |||||
+  | XGB(opt2)  |                 |                  |        0.58      |                |
+  | LGBM(opt2) |||||
+  | XGB(all)   |                 |                  |        0.58      |                |
+  | LGBM(all)  |||||
+
 <br>
 
-## 🚀 4. Platform
+## 🚀 4. Deep Learning 
+
+
+<br> 
+
+## 🚀 5. Platform
 - Git Private Repository  
 - Java, Spring framework
 - HTML, CSS, JavaScript 
@@ -83,13 +104,15 @@ The biggest problem in classification is labeling our y value, monthly gain.
 
 <br>
 
-## 📝 5. Rule 
+## 📝 6. Rule 
+- Please create your own folder and branch with your nickname and work on there. We use 'master' branch as main branch. 
+- Take care about the data leakage. The data will be discarded after the project is completed. 
 - 각자의 닉네임으로 된 folder를 만들어서, branch를 딴 후 작업해주세요. main branch 이름은 master로 지정합니다. 
 - 데이터 유출에 주의해주세요. 프로젝트가 종료된 후 데이터는 파기합니다. 
 
 <br>
 
-## 🙋‍♂️ 6. Team members
+## 🙋‍♂️ 7. Team members
 [<img src="https://avatars.githubusercontent.com/u/78654870?v=4" width="200px">](https://github.com/iDolphin99)|[<img src="https://avatars.githubusercontent.com/u/49301413?v=4" width="230px;" alt=""/>](https://github.com/yoonbincho) |[<img src="https://avatars.githubusercontent.com/u/90493141?v=4" width="230px" >](https://github.com/nemzeet) |[<img src="https://avatars.githubusercontent.com/u/64514522?v=4" width="230" >](https://github.com/rlathgml1004)|
 |:---:|:---:|:---:|:---:|
 |👑[박형빈](https://github.com/iDolphin99) |[조윤빈](https://github.com/yoonbincho) |[남지수](https://github.com/nemzeet)| [김소희](https://github.com/rlathgml1004)|
