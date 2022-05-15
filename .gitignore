@@ -1,3 +1,4 @@
 *.csv
 Dataset
 .ipynb_checkpoints
+.vscode
