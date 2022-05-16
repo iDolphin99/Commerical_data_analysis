@@ -1,54 +1,79 @@
-import sys
 import pandas as pd
 import numpy as np
 import pickle
-from pickle import load
+import category_encoders as ce
+import tensorflow as tf
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 
-def preprocessing(data) :
+def preprocessing_for_ensemble(data) :
+    # Split data  
+    data_ml = data[['shop_type_big', 'shop_type_small', 'latitude', 'longitude', 'average_sale_price']]
+    data_dl = data[['shop_type_big', 'shop_type_small', 'shop_name', 'address1', 'address2']]
+    
+    # Preprocessing data for ML 
     # Binary Encoding 
-    be = pickle.loads(open("binaryEncoder.pkl", "rb"))
+    be = pickle.load(open("./binaryEncoder.pkl", "rb"))
     binary_df = be.transform(data[['shop_type_big', 'shop_type_small']])
-    data.drop(['shop_type_big', 'shop_type_small'], axis=1)
-    data = pd.concat([data, binary_df], axis=1)
+    data_ml.drop(['shop_type_big', 'shop_type_small'], axis=1)
+    data_ml = pd.concat([data_ml, binary_df], axis=1)
     
     # Log Transform 
-    data['average_sale_price'] = data['average_sale_price'].apply(lambda x : np.log(x))
+    data_ml['average_sale_price'] = data_ml['average_sale_price'].apply(lambda x : np.log(x))
     
     # K-Means Clustering 
-    kmeans = pickle.load(open("kmeans.pkl", "rb"))
-    data['geo'] = kmeans.predict(data[['latitude', 'longitude']])
-    data.drop(['latitude', 'longitude'], axis=1)
+    kmeans = pickle.load(open("./kmeans.pkl", "rb"))
+    data_ml = data_ml.astype({'latitude' : 'int', 'longitude' : 'int'})
+    data_ml['geo'] = kmeans.predict(data_ml[['latitude', 'longitude']])
+    data_ml.drop(['latitude', 'longitude'], axis=1)
     
-    return data
+    # Preprocessing data for DL
+    # Concat data 
+    data_dl['concat_text'] = data_dl['shop_name'] + ' ' + data_dl['shop_type_big'] + ' ' + data_dl['shop_type_small']
+    data_dl['concat_text'] = data_dl['concat_text'] + ' ' + data_dl['address1'] + ' ' + data_dl['address2']
+    data_dl = data_dl.drop(['shop_name', 'shop_type_big', 'shop_type_small', 'address1', 'address2'], axis=1)
+    
+    # Word Embedding 
+    with open('tokenizer.pickle', 'rb') as handle:
+        tk = pickle.load(handle)
+    seq_data = tk.texts_to_sequences(data_dl['concat_text'], 16) # nlp_input_length = 16
+    pad_seq_data = pad_sequences(seq_data, 16)
+    data_dl = pad_seq_data
+    
+    return data_ml, data_dl
     
     
-def prediction(data) : 
+def prediction(data_ml, data_dl) : 
     # Load model 
-    model_ml = load(open('model_ml.pkl', 'rb'))
-    model_dl = load(open('model_dl.pkl', 'rb'))
+    #model_ml = load(open('./model_ml.h5', 'rb'))
+    model_ml = pickle.load(open('./model_ml.h5', 'rb'))
+    model_dl = tf.keras.models.load_model('./model_dl.h5')
     
     # Prediction from loaded model 
-    pred_ml = model_ml.predict_proba(data)
-    pred_dl = model_dl.predict_proba(data)
+    pred_ml_prob = model_ml.predict_proba(data_dl)
+    pred_dl_prob = model_dl.predict(data_ml)
     
     # Ensemble predictions by one to one
-    pred_ensemble_prob = pred_ml * 0.5 + pred_dl * 0.5
+    pred_ensemble_prob = pred_ml_prob * 0.5 + pred_dl_prob * 0.5
     pred_ensemble = np.argmax(pred_ensemble_prob, axis=1)
     
     # Label Encoder로 복귀 
-    le = pickle.loads(open("labelEncoder.pkl", "rb"))
+    le = pickle.load(open("./labelEncoder.pkl", "rb"))
     prediction = le.inverse_transform(pred_ensemble)
     
     return prediction
 
+
 if __name__ == '__main__' :
-    # shop_type_big, shop_type_small, latitude, longitude, shop_name, average_sale_price 
-    columns = ['shop_type_big', 'shop_type_small', 'latitude', 'longitude', 'shop_name', 'average_sale_price']
-    input_data = pd.DataFrame([sys.argv], columns = columns)
+    # shop_type_big, shop_type_small, latitude, longitude, shop_name, average_sale_price, address1, address2
+    columns = ['shop_type_big', 'shop_type_small', 'latitude', 'longitude', 'shop_name', 'average_sale_price', 'address1', 'address2']
+    test_data = ['뷔페', '고기 뷔페', '37.574436424779', '127.03044599927601', '오돌이', 56929, '동대문구', '용신동']
     
-    processed_data = preprocessing(input_data)
-    prediction = prediction(processed_data) 
+    # input_data = pd.DataFrame([sys.argv[1:7]], columns = columns) # dtype = 'object')
+    input_data = pd.DataFrame([test_data], columns = columns)
+
+    data_ml, data_dl = preprocessing_for_ensemble(input_data)
+    prediction = prediction(data_ml, data_dl) 
     
     print(prediction)
      
