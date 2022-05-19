@@ -63,7 +63,7 @@ def prediction(data_ml, data_dl) :
     pred_ensemble = np.argmax(pred_ensemble_prob, axis=1)
     
     # Label Encoder로 복귀 
-    le = pickle.load(open("labelEncoder.pkl", "rb"))
+    le = pickle.load(open(currentPath + "/dolphin/labelEncoder.pkl", "rb"))
     prediction = le.inverse_transform(pred_ensemble)
     
     return prediction
