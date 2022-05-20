@@ -69,18 +69,37 @@ def prediction(data_ml, data_dl) :
     return prediction
 
 
+def get_range_from_label(pred) : 
+    currentPath = os.getcwd()
+    label_df = pd.read_csv(currentPath + "/dolphin/df_label.csv" ,index_col = 0)
+    label_df = label_df.astype(int)
+    
+    cols = list(label_df.columns)
+    for c in cols : 
+        # index와 column 위치 찾아오기 
+        if label_df[c].isin(pred).any() == True :
+            idx = label_df[label_df[c].isin(pred)==True].index
+            num = cols.index(c)
+            lower = cols[num-1]
+            upper = cols[num+1]
+            
+            return label_df.loc[idx, lower].values, label_df.loc[idx, c].values, label_df.loc[idx, upper].values
+
+
 if __name__ == '__main__' :
     # shop_type_big, shop_type_small, latitude, longitude, shop_name, average_sale_price, address1, address2
     columns = ['shop_type_big', 'shop_type_small', 'latitude', 'longitude', 'shop_name', 'average_sale_price', 'address1', 'address2']
-    test_data = ['뷔페', '고기 뷔페', '37.574436424779', '127.03044599927601', '오돌이', 56929, '동대문구', '용신동']
+    test_data = ['뷔페', '고기 뷔페', '37.574436424779', '127.03044599927601', '오돌이', 58261, '동대문구', '용신동']
     
     # input_data = pd.DataFrame([sys.argv[1:7]], columns = columns) # dtype = 'object')
     input_data = pd.DataFrame([test_data], columns = columns)
 
     data_ml, data_dl = preprocessing_for_ensemble(input_data)
     prediction = prediction(data_ml, data_dl) 
+    pred_low, pred, pred_up = get_range_from_label(prediction)
     
-    print(prediction)
-     
+    print(pred_low)
+    print(pred)
+    print(pred_up)
     
             
