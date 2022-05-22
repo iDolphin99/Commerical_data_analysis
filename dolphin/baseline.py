@@ -23,6 +23,7 @@ def preprocessing_for_ensemble(data) :
     data_ml = pd.concat([data_ml, binary_df], axis=1)
     
     # Log Transform 
+    data_ml['average_sale_price'] = data_ml.astype({'average_sale_price' : int})
     data_ml['average_sale_price'] = data_ml['average_sale_price'].apply(lambda x : np.log(x))
     
     # K-Means Clustering 
