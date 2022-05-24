@@ -1,0 +1,193 @@
+.price_style{
+      font-size: 11px;
+}
+
+.price_style_selected{
+    font-size: 13px;
+}
+  
+.price_pin {
+	position: absolute;
+	background: white;
+	border-radius: 10px;
+    width: 45px;
+    height: 45px;
+    color: #3b3b3b;
+    transition: .4s;
+
+    box-shadow: 3px -3px 6px rgba(0,0,0,.5);
+    
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 11.7px;
+    text-align : center;
+    border: #318688 solid 2.2px;
+    z-index: 100;
+}
+
+.price_pin:after {
+
+	content: '';
+	position: absolute;
+	bottom: 4.3px;
+    left: 83.9%;
+	width: 0;
+	height: 0;
+	z-index: 1;
+	margin-left: -15px;
+	margin-bottom: -13px;
+
+    border-top: 13px transparent;
+    border-right: 13px solid none;
+    border-left: 13px solid white;
+    border-bottom: 13px solid transparent;
+    transition: .4s;  
+
+}
+
+.price_pin:before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 80%;
+	width: 0;
+	height: 0;
+	z-index: 0;
+	margin-left: -15px;
+	margin-bottom: -13px;
+
+    border-top: 13px transparent;
+    border-right: 14px solid none;
+    border-left: 14px solid #318688;
+    border-bottom: 13px solid transparent;
+
+   
+    transition: .4s;  
+}
+
+.price_pin:hover {
+	background: white;
+    width: 55px;
+    height: 55px;
+    color: #318688;
+    font-size: 14.8px;
+    z-index: 102;
+    border:  #318688 solid 2.2px;
+
+}
+
+.price_pin:hover:after {
+
+	content: '';
+	position: absolute;
+	bottom: 4.3px;
+    left: 83.9%;
+	width: 0;
+	height: 0;
+	z-index: 1;
+	margin-left: -15px;
+	margin-bottom: -13px;
+
+    border-top: 13px transparent;
+    border-right: 13px solid none;
+    border-left: 13px solid white;
+    border-bottom: 13px solid transparent;
+    transition: .4s;  
+}
+
+.price_pin:hover:before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 80%;
+	width: 0;
+	height: 0;
+	z-index: 0;
+	margin-left: -15px;
+	margin-bottom: -13px;
+
+    border-top: 13px transparent;
+    border-right: 14px solid none;
+    border-left: 14px solid #318688;
+    border-bottom: 13px solid transparent;
+   
+    transition: .4s;  
+}
+
+
+
+/*selected marker*/
+
+.price_pin_selected {
+    position: absolute;
+	background: #318688;
+	border-radius: 10px;
+    width: 55px;
+    height: 55px;
+    color: white;
+    transition: .4s;
+    
+    box-shadow: 2px -2px 5px rgba(0,0,0,.5);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14.8px;
+    text-align : center;
+    border: #318688 2px;
+    z-index: 101;
+}
+
+.price_pin_selected:after {
+    content: '';
+	position: absolute;
+	bottom: 0;
+	left: 80%;
+	width: 0;
+	height: 0;
+    transition: .4s;
+	
+	margin-left: -15px;
+	margin-bottom: -12px;
+    
+    border-top: 15px solid transparent;
+    border-left: 15px solid #318688;
+    border-right: 15px solid none;
+    border-bottom: 15px solid transparent;
+    display: block;
+    z-index: -1;
+}
+
+.price_pin_selected:hover {
+	background: #318688;
+    width: 55px;
+    height: 55px;
+    color: white;
+    font-size: 14.5px;
+    z-index: 102;
+
+}
+
+.price_pin_selected:hover:after {
+    content: '';
+	position: absolute;
+	bottom: 0;
+	left: 80%;
+	width: 0;
+	height: 0;
+	
+	margin-left: -15px;
+	margin-bottom: -12px;
+    transition: .4s;
+    
+    border-top: 15px solid transparent;
+    border-left: 15px solid #318688;
+    border-right: 15px solid none;
+    border-bottom: 15px solid transparent;
+    display: block;
+    z-index: -1;
+    
+}
+
+
+/*#d9eae2*/
+/*#318688*/
+/*#96cdc8*/
