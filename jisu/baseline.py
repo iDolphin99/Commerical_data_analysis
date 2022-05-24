@@ -91,12 +91,8 @@ def get_range_from_label(pred) :
 if __name__ == '__main__' :
     # shop_type_big, shop_type_small, latitude, longitude, shop_name, average_sale_price, address1, address2
     columns = ['shop_type_big', 'shop_type_small', 'latitude', 'longitude', 'shop_name', 'average_sale_price', 'address1', 'address2']
-    # test_data = ['수산물', '바닷가재/게요리 전문점', '37.583476937758', '126.798767856007', '제일한우촌', '90000', '강서구', '방화2동']
-    # test_data = test_data[0:5] + [int(test_data[5])] + test_data[6:8]
-    # input_data = pd.DataFrame([test_data], columns = columns)
     
     real_data = sys.argv[1:6] + [int(sys.argv[6])] + sys.argv[7:9]
-    # real_data = [sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], int(sys.argv[6]), sys.argv[7], sys.argv[8]]
     input_data = pd.DataFrame([real_data], columns = columns)
     
     data_ml, data_dl = preprocessing_for_ensemble(input_data)
