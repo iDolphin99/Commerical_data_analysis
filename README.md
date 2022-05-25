@@ -5,19 +5,34 @@ Commercial location recommend system using Deep Learning data analysis
 <br>
 
 ## 🔎 Overview 
-1. [EDA & Preprocessing](https://github.com/iDolphin99/Commerical_data_analysis_AI#-1-eda)
-2. [Regression](https://github.com/iDolphin99/Commerical_data_analysis_AI#-2-regression)
-3. [Classfication](https://github.com/iDolphin99/Commerical_data_analysis_AI#-3-classification)
-4. [Deep Learning](https://github.com/iDolphin99/Commerical_data_analysis_AI#-4-deep-learning)
-5. [Platform](https://github.com/iDolphin99/Commerical_data_analysis_AI#-5-platform) 
-6. [Rule](https://github.com/iDolphin99/Commerical_data_analysis_AI#-6-rule)
-7. [Team Members](https://github.com/iDolphin99/Commerical_data_analysis_AI#%EF%B8%8F-7-team-members)
+
+1. [Goal](https://github.com/iDolphin99/Commerical_data_analysis_AI#-1-eda)
+2. [EDA & Preprocessing](https://github.com/iDolphin99/Commerical_data_analysis_AI#-2-eda)
+3. [Regression](https://github.com/iDolphin99/Commerical_data_analysis_AI#-3-regression)
+4. [Classfication](https://github.com/iDolphin99/Commerical_data_analysis_AI#-4-classification)
+5. [Deep Learning](https://github.com/iDolphin99/Commerical_data_analysis_AI#-5-deep-learning)
+6. [BenchMark]
+7. [Platform](https://github.com/iDolphin99/Commerical_data_analysis_AI#-7-platform) 
+8. [Rule](https://github.com/iDolphin99/Commerical_data_analysis_AI#-8-rule)
+9. [Team Members](https://github.com/iDolphin99/Commerical_data_analysis_AI#%EF%B8%8F-9-team-members)
 
 <br>
 
-## 📌 1. EDA & Preprocessing 
-See our **EDA_report_code.ipynb** code. ('bd' means 'big data', and 'sd' means 'sample data' 😎)  
-We received two types of data, so there're two versions for EDA code. 
+## ⭐ 1. Goal
+Hello there 👋
+
+This repository is for our awesome Industry-Academy Collaboration Project.
+This would be helpful if you have some problems like **'how to deal with extreme skewed-data'** or **'how to solve regression problem with classification method'** and so on. 
+
+We aim to develop **a system that recommends the best commercial location using machine learning and deep learning approach based on a large amount of commercial district data.** Finally, we wish that this system help some small business owners who start their own businesses and want to increase thir sales. 🙌
+
+<br> 
+
+## 📌 2. EDA & Preprocessing 
+See our **EDA_report_code.ipynb** code. ('bd' means 'big data', and 'sd' means 'sample data' 😎)
+
+We received two types of data, so there're two versions for EDA code. But we fianlly used version of big data to train models. It is important to apply appropriate preprocessing techniques for each data. So we have summarized the methods that we applied below and if you get more details about preprocessing techniques we used, please take a look for baseline code, especially markdown part. We have written in more detail there. 
+
 - Handling missing values, drop unnecessary columns
 - Label Encoderlabeling : shop_type_big, shop_type_small
 - **K-mean Clustering** : we combined "latitude" and "longitude" to create a new feature "geo", k=9
