@@ -1,17 +1,17 @@
 ## 🚀 5. Platform
-### 0. 개발환경
+#### 0. 개발환경
   + OS : Ubuntu
   + DBMS : Oracle 11g/xe
   + Backend : Javascript (Node.js)
   + Front : HTML, CSS, Javascript
   
-### 1. OpenK 
+#### 1. OpenK 
 <div>&nbsp;&nbsp;&nbsp;&nbsp;<img width="100" alt="image" src="https://user-images.githubusercontent.com/90493141/170158089-300182ac-eee0-483e-9986-702ad5659b77.png"></div><br/>
 
   + Mean : 많은 정보들이 모여 하나의 결과를 제공
   + Purpose : 상권입지 정보와 매출 정보를 쉽게 알아볼 수 있는 Web DashBoard 제작
 
-### 2. Category 
+#### 2. Category 
   + 상점별 (서울 내 상점별 매출 정보)
     <br/><div><img width="800" alt="스크린샷 2022-05-25 오전 10 37 16" src="https://user-images.githubusercontent.com/90493141/170160344-7351fbc6-78d7-4b1d-80dd-525c6980feb2.png"></div>
     
