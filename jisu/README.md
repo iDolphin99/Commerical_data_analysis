@@ -13,8 +13,7 @@
 
 ### 2. Category 
   + 상점별 (서울 내 상점별 매출 정보)
-    <br/><div><img width="800" alt="스크린샷 2022-05-25 오전 10 37 16" src="https://user-images.githubusercontent.com/90493141/170160344-7351fbc6-78d7-4b1d-80dd-525c6980feb2.png">
-</div>
+    <br/><div><img width="800" alt="스크린샷 2022-05-25 오전 10 37 16" src="https://user-images.githubusercontent.com/90493141/170160344-7351fbc6-78d7-4b1d-80dd-525c6980feb2.png"></div>
     
     + 사용법 : 
       1) 원하는 지역 & 업종 필터를 선택
