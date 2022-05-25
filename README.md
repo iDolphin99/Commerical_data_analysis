@@ -25,6 +25,9 @@ Commercial location recommend system using Deep Learning data analysis
   <img src="https://img.shields.io/badge/MacOS-000000?style=flat-square&logo=apple&logoColor=white"/></a>&nbsp
 </p>
 
+### 🏆 **Award**
+We got a prize for excellence in the spring academic conference, ASK 2022. 산학협동우수상🎉
+
 <br>
 
 ## 🔎 Overview 
@@ -119,8 +122,8 @@ To solve the regression problem as a classification problem, it depends on **lab
   - **Labeling 2**  
   - **Labeling 3** 
   - **Labeling 4** 
-  - Using mean, std  
-  - Rounding 
+  - Using mean, std for labeling, but we got the worst result from this method 🤔 
+  - Rounding the values to make it easier to read, but it didn't mean much just for understanding 
 
 #### Model
 - Gradient Boosting model 
