@@ -16,7 +16,6 @@ Commercial location recommend system using Deep Learning data analysis
   <img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white"/></a>&nbsp
   <img src="https://img.shields.io/badge/Ubuntu-E95420?style=flat-square&logo=ubuntu&logoColor=white"/></a>&nbsp
   
-  
 </p>
 
 <br>
@@ -28,7 +27,7 @@ Commercial location recommend system using Deep Learning data analysis
 3. [Regression](https://github.com/iDolphin99/Commerical_data_analysis_AI#-3-regression)
 4. [Classfication](https://github.com/iDolphin99/Commerical_data_analysis_AI#-4-classification)
 5. [Deep Learning](https://github.com/iDolphin99/Commerical_data_analysis_AI#-5-deep-learning)
-6. [BenchMark]
+6. [Score]
 7. [Platform](https://github.com/iDolphin99/Commerical_data_analysis_AI#-7-platform) 
 8. [Rule](https://github.com/iDolphin99/Commerical_data_analysis_AI#-8-rule)
 9. [Team Members](https://github.com/iDolphin99/Commerical_data_analysis_AI#%EF%B8%8F-9-team-members)
@@ -54,7 +53,7 @@ We received two types of data, so there're two versions for EDA code. But we fia
 
 - Removing missing values
 - **Feature Selection** 
-  - Drop unnecessary columns like identifier feature
+  - Drop unnecessary columns like identifier, shop code feature
 - **Encoding** 
   - It is important to use appropriate encoding methods for categorical variables! 
   - Both ways were effective, but we we finally use binary encoder, for the reason that binary encoder does not give oridinality to categorical variables
@@ -67,12 +66,12 @@ We received two types of data, so there're two versions for EDA code. But we fia
 - **Log Transformation** 
   - Log transform is very important in making a strongly right-skewed distribution follow a normal distribution
   - we also experimented scaler like MinMax, Normalization, Robust, Standard, but all of them were failed
+- **Removing Outlier** 
 
 <br>
 
-## 🚀 2. Regression 
-Usually, problems such as prdicting home prices or stock prices use a regression approach. We also start with regression models. 
-
+## 🚀 3. Regression 
+Usually, problems such as prdicting home prices or stock prices use a regression approach. So we also start with regression models and compared them. What we get attention is that the error rate of all models decreased by about 60% on average after the outlier was removed. Despite various attempts, there were clear limitations to regression method. 
 - **K-Fold Cross-Validation**
   - Use k=5
 - Log transformation <-> backtoOriginal
@@ -83,66 +82,69 @@ Usually, problems such as prdicting home prices or stock prices use a regression
 - New Evaluation Metrics
 - LightGBM for Quantile Regression
 
-- **Model** 
-  - Gradient Boosting model : XGB, LGBM 
-  - Regularized Linear model : Ridge, Lasso, 
-  - lgbm 
-  - Ridge regression, lasso regression : ongoing this work...
-- Evaluation metrics
-  - rmse, mse 
-  - r2 score : you need more information about r2 score, check [this](https://www.inflearn.com/questions/48025)
-- BenchMark   
-  From left side, three columns mean **"target(Goal score)", "For sample data", "For big data"** values we measured. 
-  Seeing 'for big data' figure is enough. 
+#### Model
+- Gradient Boosting model
+  - XGB, LGBM 
+- Regularized Linear model
+  - Ridge, Lasso
+#### Evaluation metrics
+- MSE, RMSE 
+- adjusted R2  
+  - you need more information about adjusted r2 score, check [this](https://www.inflearn.com/questions/48025)
+#### BenchMark   
+From left side, three columns mean **"For sample data", "For big data"** values we measured. Seeing 'for big data' figure is enough. 
 
-  | Model |  MSE | RMSE |  R2  |          MSE        |     RMSE    |  R2  |        MSE        |   RMSE   |  R2  | 
-  |-------|:-----|:-----|:-----|:--------------------|:------------|:-----|:------------------|:---------|:-----|
-  |  XGB  |0.1577|0.3971| 0.75 | 84552727800574600.00| 287561374.00| 0.88 | 133452775778200000| 363342072| 0.18 | 
-  |  LGBM |      |      |      |104100031628893000.00| 318634288.00| 0.87 | 122804475776851000| 348992402| 0.26 | 
-  | Ridge |      |      |      |                     |             |      | 805946649246134784| 897745314| -464 | 
-  | Lasso |      |      |      |                     |             |      |                   |          |      | 
+  | Model |            MSE          |     RMSE    |  adj R2  |        MSE        |    RMSE    |  adj R2  | 
+  |-------|:------------------------|:------------|:---------|:------------------|:-----------|:---------|
+  |  XGB  |  84,552,727,800,574,600 |  287561374  |   0.88   |167,212,972,899,818| 12,931,085 |    0.3   | 
+  | LGBM  | 104,100,031,628,893,000 |  318634288  |   0.87   |170,001,344,508,730| 13,038,456 |    0.2   | 
+  | Ridge |                         |             |          |218,298,021,558,504| 14,774,911 |   0.14   | 
+  | Lasso |                         |             |          |218,298,022,158,726| 14,774,911 |   0.14   | 
 
 <br>
 
-## 🚀 3. Classification
+## 🚀 4. Multi-Class Classification
 The biggest problem in classification is labeling our y value, monthly gain.  
-- Idea : **How to deal with(classify or label) our skewed y data?** 
+- Idea : **How to label(or classify) our skewed y data?** 
   - **Labeling 1** : labeling from 3 to 10, and accuracy.. 
   - **Labeling 2** : 
-  - **Labeling 3.1** : ongoing this work... 
-  - **Labeling 3.2** :
-  - **Labeling 4** : 
-  - **TabNet** : planning this work...
-- model 
-  - xgb
-  - lgbm 
-- Evaluation metrics
-  - accuracy, precision, recall
-- BenchMark    
-  From left side, each column means **"Applying Labeling 1", "Applying Labeling 3.1"...** value we measured.  
-  Option 1 : Removing Outlier  
-  Option 2 : Rounding labeling  
-  Option 3(all) : Removing Outlier + Rounding labeling 
+  - **Labeling 3** : ongoing this work... 
+  - **Labeling 4** :
+  - Using mean, std : 
+  - Rounding :
 
-  |    Model   |  accuracy(clf1) | accuracy(clf3.1) | accuracy(clf3.2) | accuracy(clf4) |
-  |------------|:----------------|:-----------------|:-----------------|:---------------|
-  | XGB        |0.22/0.37        |       0.57       |        0.57      |      0.35      |
-  | LGBM       |       0.21      ||||
-  | XGB(opt1)  |||||
-  | LGBM(opt1) |||||
-  | XGB(opt2)  |                 |                  |        0.58      |                |
-  | LGBM(opt2) |||||
-  | XGB(all)   |                 |                  |        0.58      |                |
-  | LGBM(all)  |||||
+#### Model
+- Gradient Boosting model 
+  - XGB, LGBM
+#### Evaluation metrics
+- Accuracy, Precision, Recall, F1 score 
+#### BenchMark   
+We only write accuracy score below.
+
+  |            |  Label |  XGB  |  LGBM  |                                   Description                             |
+  |------------|:-------|:------|:-------|:--------------------------------------------------------------------------|
+  | Labeling 1 |   10   |  0.22 |  0.21  |Categorized by specific ranges (10%, 20%, 33%) in order from small to large|
+  | Labeling 2 |   31   |  0.57 |  0.30  |       (Quantile) Categorized by Lower Fence, Q2, and Upper Fence          |
+  | Labeling 3 |   45   |  0.58 |  0.11  |                (Quantile) Categorized by Q1, Q2, and Q3                   |
+  | Labeling 4 |   12   |  0.35 |  0.33  |             Categorized between min and max values of data                |
+      
+<br>
+
+## 🚀 5. Deep Learning 
 
 <br>
 
-## 🚀 4. Deep Learning 
+## 📈 6. Score
 
-
+  |         Model        |  Accuracy | 
+  |----------------------|:----------|
+  |  XGB Classifier(ML)  |   0.58    |
+  | Sequential Model(DL) |   0.81    | 
+  | **0.5 ML + 0.5 DL**  |  **0.83** | 
+  
 <br>
 
-## 🚀 5. Platform
+## 🚀 7. Platform
 #### 0. 개발환경
   + OS : Ubuntu
   + DBMS : Oracle 11g/xe
@@ -199,7 +201,7 @@ The biggest problem in classification is labeling our y value, monthly gain.
  
 <br>
 
-## 📝 6. Rule 
+## 📝 8. Rule 
 - Please create your own folder and branch with your nickname and work on there. We use 'master' branch as main branch. 
 - Take care about the data leakage. The data will be discarded after the project is completed. 
 - 각자의 닉네임으로 된 folder를 만들어서, branch를 딴 후 작업해주세요. main branch 이름은 master로 지정합니다. 
@@ -207,7 +209,7 @@ The biggest problem in classification is labeling our y value, monthly gain.
 
 <br>
 
-## 🙋‍♂️ 7. Team members
+## 🙋‍♂️ 9. Team members
 [<img src="https://avatars.githubusercontent.com/u/78654870?v=4" width="200px">](https://github.com/iDolphin99)|[<img src="https://avatars.githubusercontent.com/u/49301413?v=4" width="230px;" alt=""/>](https://github.com/yoonbincho) |[<img src="https://avatars.githubusercontent.com/u/90493141?v=4" width="230px" >](https://github.com/nemzeet) |[<img src="https://avatars.githubusercontent.com/u/64514522?v=4" width="230" >](https://github.com/rlathgml1004)|
 |:---:|:---:|:---:|:---:|
 |👑[박형빈](https://github.com/iDolphin99) |[조윤빈](https://github.com/yoonbincho) |[남지수](https://github.com/nemzeet)| [김소희](https://github.com/rlathgml1004)|
