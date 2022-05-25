@@ -148,6 +148,7 @@ The biggest problem in classification is labeling our y value, monthly gain.
 
 #### 4. 참고 문서
   + 행정 읍면동 경계 : https://github.com/vuski/admdongkor/blob/master/ver20220309/ver20220309_emd_vote_simple.geojson
+  + 서울 구 지도 : https://upload.wikimedia.org/wikipedia/commons/2/2c/01-00-seoul-ko.svg
  
 <br>
 
