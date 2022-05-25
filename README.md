@@ -22,15 +22,15 @@ Commercial location recommend system using Deep Learning data analysis
 
 ## 🔎 Overview 
 
-1. [Goal](https://github.com/iDolphin99/Commerical_data_analysis_AI#-1-eda)
-2. [EDA & Preprocessing](https://github.com/iDolphin99/Commerical_data_analysis_AI#-2-eda)
-3. [Regression](https://github.com/iDolphin99/Commerical_data_analysis_AI#-3-regression)
-4. [Classfication](https://github.com/iDolphin99/Commerical_data_analysis_AI#-4-classification)
-5. [Deep Learning](https://github.com/iDolphin99/Commerical_data_analysis_AI#-5-deep-learning)
-6. [Score]
-7. [Platform](https://github.com/iDolphin99/Commerical_data_analysis_AI#-7-platform) 
-8. [Rule](https://github.com/iDolphin99/Commerical_data_analysis_AI#-8-rule)
-9. [Team Members](https://github.com/iDolphin99/Commerical_data_analysis_AI#%EF%B8%8F-9-team-members)
+1. [Goal](https://github.com/iDolphin99/Commerical_data_analysis/edit/master/README.md#-1-goal)
+2. [EDA & Preprocessing](https://github.com/iDolphin99/Commerical_data_analysis/edit/master/README.md#-2-eda--preprocessing)
+3. [Regression](https://github.com/iDolphin99/Commerical_data_analysis/edit/master/README.md#-3-regression)
+4. [Classfication](https://github.com/iDolphin99/Commerical_data_analysis/edit/master/README.md#-4-multi-class-classification)
+5. [Deep Learning](https://github.com/iDolphin99/Commerical_data_analysis/edit/master/README.md#-5-deep-learning)
+6. [Score](https://github.com/iDolphin99/Commerical_data_analysis/edit/master/README.md#-6-score)
+7. [Platform](https://github.com/iDolphin99/Commerical_data_analysis/edit/master/README.md#-7-platform) 
+8. [Rule](https://github.com/iDolphin99/Commerical_data_analysis/edit/master/README.md#-8-rule)
+9. [Team Members](https://github.com/iDolphin99/Commerical_data_analysis/edit/master/README.md#%EF%B8%8F-9-team-members)
 
 <br>
 
