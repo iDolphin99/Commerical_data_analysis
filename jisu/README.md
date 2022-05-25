@@ -49,6 +49,6 @@
     + 사용법 : 웹 페이지 내 우측 하단의 원형 버튼 클릭
     + 목적 : XAI관점에서 매출 예측 데이터가 나오게 된 배경에 대한 메뉴얼 제공
 
-#### 4. 참고 문서
+#### 3. 참고 문서
   + 행정 읍면동 경계 데이터 : https://github.com/vuski/admdongkor/blob/master/ver20220309/ver20220309_emd_vote_simple.geojson
   + 서울 구 지도 : https://upload.wikimedia.org/wikipedia/commons/2/2c/01-00-seoul-ko.svg
