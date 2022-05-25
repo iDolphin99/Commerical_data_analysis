@@ -140,7 +140,7 @@ The biggest problem in classification is labeling our y value, monthly gain.
       + 인기 업종 : 선택된 구의 구내 인기 업종 TOP3
       + 인기 키워드 : 선택된 구의 구내 상점 이름 & 업종 기반 인기 키워드
       
-  + 메뉴얼 : 매출 데이터가 어려운 사용자들을 위한 기능
+  + 메뉴얼 (매출 데이터가 어려운 사용자들을 위한 기능)
     <br/><div><img width="800" alt="스크린샷 2022-05-25 오전 10 15 03" src="https://user-images.githubusercontent.com/90493141/170157818-1b0615ff-7c97-47c3-b2b4-e4c482b3b8ae.png"></div>
     
     + 사용법 : 웹 페이지 내 우측 하단의 원형 버튼 클릭
