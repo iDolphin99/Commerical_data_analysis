@@ -78,7 +78,9 @@ We received two types of data, so there're two versions for EDA code. But we fia
 <br>
 
 ## 🚀 3. Regression 
-Usually, problems such as prdicting home prices or stock prices use a regression approach. So we also start with regression models and compared them. What we get attention is that the error rate of all models decreased by about 60% on average after the outlier was removed. Despite various attempts, there were clear limitations to regression method. 
+Usually, problems such as prdicting home prices or stock prices use a regression approach. So we also start with regression models and compared them. What we get attention is that the error rate of all models decreased by about 60% on average after the outlier was removed. 
+
+Despite various attempts, there were clear limitations to regression method. 
 - **K-Fold Cross-Validation**
   - Use k=5
 - Log transformation <-> backtoOriginal
@@ -111,14 +113,14 @@ From left side, three columns mean **"For sample data", "For big data"** values 
 <br>
 
 ## 🚀 4. Multi-Class Classification
-The biggest problem in classification is labeling our y value, monthly gain.  
-- Idea : **How to label(or classify) our skewed y data?** 
-  - **Labeling 1** : labeling from 3 to 10, and accuracy.. 
-  - **Labeling 2** : 
-  - **Labeling 3** : ongoing this work... 
-  - **Labeling 4** :
-  - Using mean, std : 
-  - Rounding :
+To solve the regression problem as a classification problem, it depends on **labeling the y variable, 'monthly gain'.** We exprienced with many various ideas and were able to achieve the Robust results when using Quantile. In particular, we can obtain the best results because we applied method according to the deviation of each shop type big. 
+- Goal : **How to label(or classify) our skewed y data? with many labels and high accuracy!** 
+  - **Labeling 1**  
+  - **Labeling 2**  
+  - **Labeling 3** 
+  - **Labeling 4** 
+  - Using mean, std  
+  - Rounding 
 
 #### Model
 - Gradient Boosting model 
@@ -126,7 +128,7 @@ The biggest problem in classification is labeling our y value, monthly gain.
 #### Evaluation metrics
 - Accuracy, Precision, Recall, F1 score 
 #### BenchMark   
-We only write accuracy score below.
+We only write accuracy score below. And as shown in the table, Labeling 3 method was the best. 
 
   |            |  Label |  XGB  |  LGBM  |                                   Description                             |
   |------------|:-------|:------|:-------|:--------------------------------------------------------------------------|
@@ -138,10 +140,14 @@ We only write accuracy score below.
 <br>
 
 ## 🚀 5. Deep Learning 
+More higher performance and learning data from differenct perspectives, we trained Deep Learining model, especiall NLP(Natural Langauge Processing) techniques. To build NLP model, we used Sequential Model of Keras Library and created a new natural language variable from our data to obtain a totla of 120,000 word datasets.  
+
+![16](https://user-images.githubusercontent.com/78654870/170285957-0ffa956c-493d-4828-943d-6aaa26569217.png)
 
 <br>
 
 ## 📈 6. Score
+The machine learning model learned various variables such as geo, average sale price, shop type and the deep learning model learned natural language meanings. We checked prediction accuracy when two models learned from different perspectives were properly ensembled, and we write each results below. To sum up, We finally got 0.83 acc! 👏👏👏
 
   |         Model        |  Accuracy | 
   |----------------------|:----------|
