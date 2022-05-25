@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="./css/shop_main.css">
+    <link rel="stylesheet" href="./css/shop_map.css">
+    <link rel="stylesheet" href="./css/shop_popup.css">
+    <link rel="stylesheet" href="./css/shop_marker.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=KAKAO_API_KEY&libraries=services"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script> let start_data = "<%=start_data%>";</script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/shop_popup.js"></script>
+    <script src="./js/shop_main.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <title>OpenK</title>
+
+    
+</head>
+<body>
+   <section id = "centerSec" class="center">
+    <section class="category">    
+        
+        <section class="logo_position"></section>
+        <a href="/" >
+            <img src="./images/logo.png" alt="OpenK" class="logo" />
+        </a>
+
+        <a href="/shop" class="map_a">
+          <div class="map_icon"><text>상점별</text></div>
+      </a>
+
+     
+      <a href="/area">
+          <div class="job_icon"><text>지역별</text></div>
+      </a>
+
+    </section>
+
+   
+
+    <a href="javascript:openPop()">
+      <div class="manual">
+          
+          <div class="material-icons">sticky_note_2</div>
+      </div>
+  </a>
+
+    <div class="popup_layer fade-in-box-two" id="popup_layer" style="display: none;">
+      <div class="popup_box">
+          <div style="height: 10px; width: 375px; float: top;">
+            <a href="javascript:closePop();"></a>
+          </div>
+          <!--팝업 컨텐츠 영역-->
+          <div class="popup_cont">
+            <text class="popup_title">매출 데이터의 대한 내용이 궁금하신가요?</text>
+            <p>
+                <div class="popup_text">
+                <text class="Question">매출 데이터는 실제 정확한 매출일까요?</text> <br/>
+
+                <text class="answer">OpenK의 매출은 실제 매출이 아닌 예측된 값이에요.<br/>
+                    예측 정확도는 약 80%로 높은 편이니 창업하실 때 가치있게 사용하실 수 있을 거예요.<br/><br/></text>
+                
+                <text class="Question">매출 데이터는 어떻게 나온 걸까요?<br/></text>
+                <text class="answer"> 상점 데이터를 학습한 머신러닝과 딥러닝 모델을 조합해서 얻은 매출 예측값이에요.</text><br/><br/>
+                
+                <text class="Question">어떤 상점 데이터를 학습했나요?<br/></text>
+                <table class="tg" style="table-layout: fixed; width: 318px">
+                    <colgroup>
+                    <col style="width: 75px">
+                    <col style="width: 243px">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th class="tg-virx" colspan="2">매장 데이터</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="tg-iwht">매장 속성</td>
+                        <td class="tg-xbin">매장 코드, 매출 날짜, 매장명<br>업종 대분류, 업종 소분류, 위도, 경도</td>
+                      </tr>
+                      <tr>
+                        <td class="tg-iwht">매출 정보</td>
+                        <td class="tg-xbin">월평균 단가, 월 매출</td>
+                      </tr>
+                    </tbody>
+                    </table><br/>
+                
+                
+                
+                더 자세한 내용은<br/>
+                git : https://github.com/iDolphin99/Commerical_data_analysis_AI<br/>
+                
+            </div>
+  
+            </p>
+  
+        </div>
+          <!--팝업 버튼 영역-->
+          <div class="popup_btn" style="float: bottom; margin-top: 200px;">
+              <a href="javascript:closePop();">닫기</a>
+          </div>
+      </div>
+    </div>
+
+          <h1 class="title1">How to recommend the best commercial location using D.L Network</h1>
+
+    
+    <form id="map_form" class="fade-in-box-two">
+        <select name="loc_type" onChange="selectLoc(this.value, loc_type_small)"  class="map_select"  >
+          <option value=''>구</option>
+          <option value="강남구">강남구</option>
+          <option value='강동구'>강동구</option>
+          <option value="강북구">강북구</option>
+          <option value="강서구">강서구</option>
+          <option value="관악구">관악구</option>
+          <option value="광진구">광진구</option>
+          <option value="구로구">구로구</option>
+          <option value="금천구">금천구</option>
+          <option value="노원구">노원구</option>
+          <option value="도봉구">도봉구</option>
+          <option value="동대문구">동대문구</option>
+          <option value="동작구">동작구</option>
+          <option value="마포구">마포구</option>
+          <option value="서대문구">서대문구</option>
+          <option value="서초구">서초구</option>
+          <option value="성동구">성동구</option>
+          <option value="성북구">성북구</option>
+          <option value="송파구">송파구</option>
+          <option value="양천구">양천구</option>
+          <option value="영등포구">영등포구</option>
+          <option value="용산구">용산구</option>
+          <option value="은평구">은평구</option>
+          <option value="종로구">종로구</option>
+          <option value="중구">중구</option>
+          <option value="중랑구">중랑구</option>
+          <!--
+          <option value="과천시">과천시</option>
+          <option value="광명시">광명시</option>
+          -->
+  
+        </select>
+        <select id="loc_type_small" onChange="selectLocSmall(this.value)" class="map_select2">
+          <option value ="">동</option>
+        </select>
+      
+      </form>
+
+    <form id="job_form" class="fade-in-box-two">
+        <select id="job_type" onChange="selectJob(this.value, job_type_small)" class="job_select">
+          <option value="">업종</option>
+          <option value='다방/커피숍/카페'>다방/커피숍/카페</option>
+          <option value='별식/퓨전요리'>별식/퓨전요리</option>
+          <option value='분식'>분식</option>
+          <option value='뷔페'>뷔페</option>
+          <option value='생활서비스'>생활서비스</option>
+          <option value='소매'>소매</option>
+          <option value='수산물'>수산물</option>
+          <option value='양식'>양식</option>
+          <option value='유흥주점'>유흥주점</option>
+          <option value='일식'>일식</option>
+          <option value='제과제빵떡케익'>제과제빵떡케익</option>
+          <option value='중식'>중식</option>
+          <option value='패스트푸드'>패스트푸드</option>
+          <option value='한식'>한식</option>
+          <option value='음식-미분류'>음식-미분류</option>
+        </select> 
+
+        <!-- 업종 소분류 --> <!--option text : this.options[this.selectedIndex].text-->
+        <select id="job_type_small" onChange="selectJobSmall(this.value)" class="job_select2">
+          <option value="">-선택-</option>
+        </select> 
+
+      </form>
+    
+    <section id="map" class="map fade-in-box-two">
+      
+      <script defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_API_KEY&callback=initMap&libraries=&v=weekly"></script>
+      
+     </section>
+
+     <section class="month fade-in-box">
+        <h2 style="font-size:17px;">월별 매출</h2>
+     </section>
+
+    <div class="chart_div fade-in-box">
+      <div id="chart_div"></div>
+    </div>
+
+    <div class="summary fade-in-box">
+      <h2 id = "prediction_title"class="prediction">다음 달 예상 매출</h2>
+    </div>
+
+   </section>
+   <footer>
+    <div class="info">
+        <span>딥러닝 데이터 분석을 통한 최적의 상권입지 추천 기술 개발</span>
+        <span>박형빈 • 남지수 • 조윤빈 • 김소희</span>
+       <span>Prof. 임동혁</span>
+        <span>CMO, ph.D 전희국</span>
+      </div>
+
+      <p class="copyright">
+        &copy; <span class="this-year"></span> (주)냉Django. All Rights Reserved.
+      </p>
+
+
+    </div>
+   </footer>
+
+    
+</body>
+</html>
