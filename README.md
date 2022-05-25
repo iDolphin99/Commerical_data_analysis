@@ -2,6 +2,15 @@
 Commercial location recommend system using Deep Learning data analysis  
 딥러닝 데이터 분석을 통한 최적의 상권입지 추천 기술 개발
 
+### 🛠️ **Specification**
+<p>
+  <img src="https://img.shields.io/badge/Python-3766AB?style=flat-square&logo=Python&logoColor=white"/></a>&nbsp   
+  <img src="https://img.shields.io/badge/css-1572B6?style=flat-square&logo=css3&logoColor=white"/></a>&nbsp 
+  <img src="https://img.shields.io/badge/Javascript-ffb13b?style=flat-square&logo=javascript&logoColor=white"/></a>&nbsp
+  <img src="https://img.shields.io/badge/Scikit Learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white"/></a>&nbsp 
+  <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white"/></a>&nbsp 
+</p>
+
 <br>
 
 ## 🔎 Overview 
@@ -18,42 +27,57 @@ Commercial location recommend system using Deep Learning data analysis
 
 <br>
 
-## ⭐ 1. Goal
+## 🎯 1. Goal
 Hello there 👋
 
 This repository is for our awesome Industry-Academy Collaboration Project.
-This would be helpful if you have some problems like **'how to deal with extreme skewed-data'** or **'how to solve regression problem with classification method'** and so on. 
+This would be helpful if you have some problems like **'how to deal with extreme skewed-data'** or **'how to solve regression problem with classification method'** and so on. We tried to write everything we experimented as much as possible. We hope even these attempts could help you.
 
-We aim to develop **a system that recommends the best commercial location using machine learning and deep learning approach based on a large amount of commercial district data.** Finally, we wish that this system help some small business owners who start their own businesses and want to increase thir sales. 🙌
+We aim to develop **a system that recommends the best commercial location using machine learning and deep learning approach based on a large amount of commercial district data.** To do this, we train model to predict **'monthly gain'** of each stores. In addition we create **Web dashboard** to visualize our insights of huge commercial location data obtained in the project and add a short simulation function using the trained model. Finally, we wish this system help some small business owners who start their own businesses and want to increase thir sales. 🙌
 
 <br> 
 
 ## 📌 2. EDA & Preprocessing 
 See our **EDA_report_code.ipynb** code. ('bd' means 'big data', and 'sd' means 'sample data' 😎)
 
+The biggest problem in our data is that **it has large deviations and strong biases, skewness.** The monthly sales earned by each stores are too different and data should be pre-processed to help models predict this huge values well. 
+
 We received two types of data, so there're two versions for EDA code. But we fianlly used version of big data to train models. It is important to apply appropriate preprocessing techniques for each data. So we have summarized the methods that we applied below and if you get more details about preprocessing techniques we used, please take a look for baseline code, especially markdown part. We have written in more detail there. 
 
-- Handling missing values, drop unnecessary columns
-- Label Encoderlabeling : shop_type_big, shop_type_small
-- **K-mean Clustering** : we combined "latitude" and "longitude" to create a new feature "geo", k=9
-- **Log transformation** : we finally use this scaler 
-- Scaler : falied(MinMax, Normalization, Robust, Standard)
+- Removing missing values
+- **Feature Selection** 
+  - Drop unnecessary columns like identifier feature
+- **Encoding** 
+  - It is important to use appropriate encoding methods for categorical variables! 
+  - Both ways were effective, but we we finally use binary encoder, for the reason that binary encoder does not give oridinality to categorical variables
+  - Label Encoding 
+  - Binary Encoding 
+- **K-mean Clustering** 
+  - Combined "latitude" and "longitude" to create a new feature "geo"
+  - Use k++ method
+  - k=9 is optimal number of clusters based on Silhouette Coefficient
+- **Log Transformation** 
+  - Log transform is very important in making a strongly right-skewed distribution follow a normal distribution
+  - we also experimented scaler like MinMax, Normalization, Robust, Standard, but all of them were failed
 
 <br>
 
 ## 🚀 2. Regression 
-The biggest problem in regression is to improve the performance of the model. In other words, it is to increase the evaluation score.
-- Idea : **How to deal with our skewed y data?** 
-  - **Log transformation** : we apply log transformation to "average_sale_price" feature
-  - **k-fold cross-validation** : we use k=5
-  - **Log transformation <-> backtoOriginal** : but, the performance has fallen further
-  - **LGBM -> objective = tweedie, tweedie loss function** : but, there was a limiation to improving preformance in LGBM, so we decieded not to use this function 
-  - **Hyperparameter tuning** : We try this with GridSearchCV, but as a result of the meeting, it doesn't need to do this. 
-  - **new evaluation metrics** : add r2 score, finally we use rmse, mse, r2 evaluation metrics
-  - **LightGBM for Quantile Regression** : ongoning this work... 
-- model 
-  - randomforest : Not used! 
-  - xgb
+Usually, problems such as prdicting home prices or stock prices use a regression approach. We also start with regression models. 
+
+- **K-Fold Cross-Validation**
+  - Use k=5
+- Log transformation <-> backtoOriginal
+  - but the performance has fallen further 
+- **Hyperparameter tuning**
+  - Use GridSearchCV 
+  - LGBM -> objective = tweedie, tweedie loss function => but there was a limiation to improving preformance more highter
+- New Evaluation Metrics
+- LightGBM for Quantile Regression
+
+- **Model** 
+  - Gradient Boosting model : XGB, LGBM 
+  - Regularized Linear model : Ridge, Lasso, 
   - lgbm 
   - Ridge regression, lasso regression : ongoing this work...
 - Evaluation metrics
