@@ -26,9 +26,11 @@ Commercial location recommend system using Deep Learning data analysis
 </p>
 
 ### 🏆 **Award**
-We got a prize for excellence in the spring academic conference, ASK 2022, 산학협동우수상🎉
-
+We got a prize for excellence in the spring academic conference, ASK 2022, 산학협동우수상🎉  
 We got a prize for excellence in the KW University competition, Industry-Academic Collaboration SW Project, 최우수상
+
+### 🚩 **Demo**
+[![Image](https://user-images.githubusercontent.com/78654870/174478125-d8441cf6-f41b-467f-abff-c85474b7a038.png)](https://www.youtube.com/watch?v=WBNOciDR3Zw)
 
 <br>
 
@@ -52,7 +54,7 @@ Hello there 👋
 This repository is for our awesome Industry-Academy Collaboration Project.
 This would be helpful if you have some problems like **'how to deal with extreme skewed-data'** or **'how to solve regression problem with classification method'** and so on. We tried to write everything we experimented as much as possible. We hope even these attempts could help you.
 
-We aim to develop **a system that recommends the best commercial location using machine learning and deep learning approach based on a large amount of commercial district data.** To do this, we train model to predict **'monthly gain'** of each stores. In addition we create **Web dashboard** to visualize our insights of huge commercial location data obtained in the project and add a short simulation function using the trained model. Finally, we wish this system help some small business owners who start their own businesses and want to increase thir sales. 🙌
+We aim to develop **a system that recommends the best commercial location using machine learning and deep learning approach based on a large amount of commercial location data.** To do this, we train model to predict **'monthly gain'** of each stores. In addition we create **Web dashboard** to visualize our insights of huge commercial location data obtained in the project and add a short simulation function using the trained model. Finally, we wish this system help some small business owners who start their own businesses and want to increase their sales. 🙌
 
 <br> 
 
@@ -119,11 +121,11 @@ From left side, three columns mean **"For sample data", "For big data"** values 
 
 ## 🚀 4. Multi-Class Classification
 To solve the regression problem as a classification problem, it depends on **labeling the y variable, 'monthly gain'.** We exprienced with many various ideas and were able to achieve the Robust results when using Quantile. In particular, we can obtain the best results because we applied method according to the deviation of each shop type big. 
-- Goal : **How to label(or classify) our skewed y data? with many labels and high accuracy!** 
-  - **Labeling 1**  
-  - **Labeling 2**  
-  - **Labeling 3** 
-  - **Labeling 4** 
+- Goal : **How to label(or classify) our skewed y data as many labels as possible and high accuracy?** 
+  - **Labeling 1** : Cut a specific range like 10%, 20%, 33%, 50%.. from the front in order 
+  - **Labeling 2** : Divide into lower fence, Q2, and upper fence values using quantiles 
+  - **Labeling 3** : Divide into Q1, Q2 and Q3 values using quantiles
+  - **Labeling 4** : Divide between minimum and maximum as heuristic (more detailed in 10 ~ 30 million won, other than sparsely)
   - Using mean, std for labeling, but we got the worst result from this method 🤔 
   - Rounding the values to make it easier to read, but it didn't mean much just for understanding 
 
