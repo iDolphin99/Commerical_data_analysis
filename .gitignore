@@ -3,5 +3,6 @@ Dataset
 .ipynb_checkpoints
 .vscode
 Model
+*.ini
 
 dolphin/.ipynb_checkpoints
