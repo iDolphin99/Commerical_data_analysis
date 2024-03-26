@@ -27,7 +27,8 @@ Commercial location recommend system using Deep Learning data analysis
 
 ### 🏆 **Award**
 We got a prize for excellence in the spring academic conference, ASK 2022, 산학협동우수상🎉  
-We got a prize for excellence in the KW University competition, Industry-Academic Collaboration SW Project, 최우수상
+We got a prize for excellence in the KW & SW exhibition, Industry-Academic Collaboration SW Project, 최우수상🎉  
+We got a prize for excellence in the KW University graduation exhibition, 3rd Prize, 장려상🎉  
 
 ### 🚩 **Demo**
 [![Image](https://user-images.githubusercontent.com/78654870/175818055-320a7c87-019a-4ba1-bea0-53424c7e9b61.png)](https://www.youtube.com/watch?v=WBNOciDR3Zw)
